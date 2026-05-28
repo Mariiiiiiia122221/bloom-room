@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap');
+
+:root{
+  --bg:#f4efe7;
+  --card:#fffaf3;
+  --text:#201b17;
+  --muted:#74685e;
+  --olive:#59653f;
+  --olive-dark:#404b2d;
+  --line:#e2d8ca;
+  --shadow:0 24px 70px rgba(62,48,35,.12);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:Manrope,Arial,sans-serif;
+}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+
+.header{
+  max-width:1500px;
+  margin:auto;
+  padding:24px 54px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(244,239,231,.86);
+  backdrop-filter:blur(18px);
+}
+.logo span{
+  font-family:'Playfair Display',serif;
+  font-size:28px;
+  color:var(--text);
+}
+.logo small{
+  display:block;
+  color:var(--muted);
+  margin-top:4px;
+}
+.nav{
+  display:flex;
+  gap:38px;
+  font-weight:700;
+  font-size:14px;
+}
+.menu-btn{
+  display:none;
+  background:none;
+  border:0;
+  font-size:28px;
+}
+
+.hero{
+  max-width:1500px;
+  margin:0 auto;
+  min-height:650px;
+  position:relative;
+  overflow:hidden;
+  border-radius:0 0 42px 42px;
+}
+
+/* ГЛАВНОЕ ФОТО С ГРАДИЕНТОМ ПО БОКУ */
+.hero-bg{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,
+      #f4efe7 0%,
+      rgba(244,239,231,.96) 24%,
+      rgba(244,239,231,.72) 42%,
+      rgba(244,239,231,.18) 64%,
+      rgba(244,239,231,0) 100%
+    ),
+    url('assets/hero_sofa_main.png');
+  background-size:cover;
+  background-position:center right;
+  transform:scale(1.02);
+  animation:heroZoom 10s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom{
+  from{transform:scale(1.02)}
+  to{transform:scale(1.06)}
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:620px;
+  padding:110px 54px;
+}
+.eyebrow{
+  color:var(--olive);
+  text-transform:uppercase;
+  letter-spacing:1px;
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:24px;
+}
+h1,h2,h3{
+  font-family:'Playfair Display',Georgia,serif;
+  font-weight:500;
+}
+h1{
+  font-size:66px;
+  line-height:1.02;
+  letter-spacing:-1px;
+}
+.hero-text{
+  margin:28px 0 34px;
+  max-width:500px;
+  font-size:18px;
+  line-height:1.7;
+  color:#312a25;
+}
+.hero-buttons{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.btn{
+  min-height:54px;
+  padding:0 28px;
+  border-radius:10px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  transition:.35s;
+}
+.primary{
+  background:var(--olive);
+  color:white;
+}
+.primary:hover{
+  background:var(--olive-dark);
+  transform:translateY(-3px);
+}
+.secondary{
+  border:1px solid var(--olive);
+  background:rgba(255,250,243,.55);
+}
+.secondary:hover{
+  background:var(--card);
+  transform:translateY(-3px);
+}
+
+.benefits{
+  max-width:1380px;
+  margin:34px auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:18px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.benefits div{
+  padding:28px;
+  border-right:1px solid var(--line);
+}
+.benefits div:last-child{border-right:0}
+.benefits b{display:block;margin-bottom:8px}
+.benefits span{color:var(--muted)}
+
+.section{
+  max-width:1380px;
+  margin:auto;
+  padding:66px 0;
+}
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  margin-bottom:28px;
+}
+.section-head h2{
+  font-size:36px;
+}
+.section-head a{
+  color:var(--olive);
+  font-weight:800;
+}
+
+.category-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:26px;
+}
+.category{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:320px;
+}
+.category img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.category div{
+  padding:36px;
+}
+.category h3{
+  font-size:32px;
+  margin-bottom:14px;
+}
+.category p{
+  color:var(--muted);
+  line-height:1.7;
+  margin-bottom:24px;
+}
+
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+.product{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 14px 38px rgba(62,48,35,.08);
+  transition:.35s;
+}
+.product:hover{
+  transform:translateY(-7px);
+  box-shadow:var(--shadow);
+}
+.product img{
+  width:100%;
+  height:360px;
+  object-fit:cover;
+  transition:.8s;
+}
+.product:hover img{
+  transform:scale(1.04);
+}
+.product h3{
+  font-family:Manrope,Arial,sans-serif;
+  padding:20px 22px 6px;
+  font-size:18px;
+}
+.product p{
+  padding:0 22px 22px;
+  font-weight:800;
+}
+
+.contacts{
+  max-width:1000px;
+  margin:60px auto 100px;
+  text-align:center;
+}
+.contacts h2{
+  font-size:38px;
+  margin-bottom:28px;
+}
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+}
+.contact-grid article{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:34px;
+  box-shadow:var(--shadow);
+}
+.contact-grid img{
+  width:230px;
+  height:230px;
+  object-fit:contain;
+  margin:0 auto 20px;
+  background:white;
+  padding:14px;
+  border-radius:16px;
+}
+.contact-grid h3{
+  font-size:30px;
+  margin-bottom:18px;
+}
+
+@media(max-width:900px){
+  .header{padding:18px 22px}
+  .nav{
+    display:none;
+    position:absolute;
+    left:20px;
+    right:20px;
+    top:76px;
+    flex-direction:column;
+    background:var(--card);
+    padding:22px;
+    border-radius:18px;
+    box-shadow:var(--shadow);
+  }
+  .nav.open{display:flex}
+  .menu-btn{display:block}
+
+  .hero{
+    min-height:620px;
+    border-radius:0 0 28px 28px;
+  }
+  .hero-bg{
+    background:
+      linear-gradient(180deg,
+        rgba(244,239,231,.96) 0%,
+        rgba(244,239,231,.86) 36%,
+        rgba(244,239,231,.22) 100%
+      ),
+      url('assets/hero_sofa_main.png');
+    background-size:cover;
+    background-position:center bottom;
+  }
+  .hero-content{
+    padding:60px 22px;
+  }
+  h1{
+    font-size:40px;
+  }
+  .hero-text{
+    font-size:16px;
+  }
+  .benefits,
+  .category-grid,
+  .product-grid,
+  .contact-grid{
+    grid-template-columns:1fr;
+    margin-left:22px;
+    margin-right:22px;
+  }
+  .section{
+    padding:50px 22px;
+  }
+  .category{
+    grid-template-columns:1fr;
+  }
+  .category img{
+    height:260px;
+  }
+  .product img{
+    height:300px;
+  }
+}
